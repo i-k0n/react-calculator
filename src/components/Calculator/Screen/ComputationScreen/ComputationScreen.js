@@ -1,9 +1,9 @@
 import React from 'react'
 
-function ComputationScreen() {
+function ComputationScreen(props) {
     return (
         <div className="computation-screen">
-            5000 + 100 + 30 + 4
+            {props.children}
         </div>
     )
 }

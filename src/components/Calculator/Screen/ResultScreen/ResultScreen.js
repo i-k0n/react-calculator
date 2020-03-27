@@ -1,9 +1,9 @@
 import React from 'react'
 
-function ResultScreen() {
+function ResultScreen(props) {
     return (
         <div className="result-screen">
-            5134
+            {props.children}
         </div>
     )
 }

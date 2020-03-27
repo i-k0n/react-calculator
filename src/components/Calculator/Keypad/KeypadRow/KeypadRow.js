@@ -1,9 +1,9 @@
 import React from 'react'
 
-function KeypadRow() {
+function KeypadRow(props) {
     return (
         <div className="keypad__row">
-            row
+            {props.children}
         </div>
     )
 }

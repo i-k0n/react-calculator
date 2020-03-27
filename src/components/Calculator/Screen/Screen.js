@@ -3,11 +3,11 @@ import ResultScreen from './ResultScreen/ResultScreen'
 import ComputationScreen from './ComputationScreen/ComputationScreen'
 
 
-function Screen() {
+function Screen(props) {
     return (
         <section className="screen">
-            <ResultScreen />
-            <ComputationScreen />
+            <ResultScreen>{props.result}</ResultScreen>
+            <ComputationScreen>{props.equation}</ComputationScreen>
         </section>
         
     )

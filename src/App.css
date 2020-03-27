@@ -60,3 +60,36 @@
   display: flex; /* To control the dimension */
   color: white;
 }
+
+.btn {
+  width: 25%;
+  height: 100%;
+  font-size: 3rem;
+  font-family: inherit;
+  background-color: #2e2928;
+  border: 1px solid transparent;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .2s;
+  color: #9b8f8d;
+}
+.btn:hover {
+  color: #bbb;
+  background-color: #fe6f5e;
+}
+.btn:active {
+  transform: scale(.95);
+}
+
+.btn--large {
+  width: 50%;
+  color: #fff;
+  background-color: #fe6f5e;
+  transition: all .2s;
+}
+.btn--large:hover {
+  background-color: #2e2928;
+  color: #fe6f5e;
+}
