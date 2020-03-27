@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Calculator from './components/Calculator';
+import Calculator from './components/Calculator/Calculator';
 
 // click a number
 // clicking another number adds to that number
