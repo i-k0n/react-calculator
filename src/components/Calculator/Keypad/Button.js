@@ -9,7 +9,11 @@ function Button(props) {
     }
 
     return (
-        <button className={classes.join(' ')} onClick={props.onButtonPress} >
+        <button 
+            className={classes.join(' ')} 
+            onClick={props.onButtonPress} 
+            data-action={props.action}
+        >
             {props.children}
         </button>
     )
