@@ -5,19 +5,29 @@ import Keypad from './Keypad/Keypad'
 function Calculator() {
 
     const [equation, setEquation] = useState('');
-    const [result, setResult] = useState(0);
+    const [result, setResult] = useState('0');
+    const [display, setDisplay] = useState('0');
 
     const onButtonPress = e => {
       // let equationTemp = equation;
       // const pressedButton = e.target.innerHTML;
-      const key = e.target.innerHTML;
+      const key = e.target;
       const action = e.target.getAttribute('data-action');
-      console.log(e.target.innerHTML)
+      const keyContent = key.textContent;
+      const displayedNum = display.textContent;
+      console.log(keyContent)
       console.log(e.target.getAttribute('data-action'))
-
       if (!action) {
         console.log('number key!')
+        if (result === '0') {
+          setResult(keyContent);
+        } else { 
+          setResult(result + keyContent);
+        }
       }
+
+      document.querySelector('.keypad').querySelectorAll('.btn').forEach(k => k.classList.remove('is-depressed'))
+      
 
       if (
         action === 'add' ||
@@ -27,6 +37,20 @@ function Calculator() {
         action === 'percentage'
         ) {
           console.log('operator key!')
+          key.classList.add('is-depressed')
+      }
+
+      if (action === 'decimal') {
+        console.log('decimal key!')
+        setResult(result + '.')
+      }
+
+      if (action === 'clear') {
+        console.log('clear key!')
+      }
+
+      if (action === 'calculate') {
+        console.log('equal key!')
       }
       // handle clear
       // if (pressedButton === 'C') return clear();

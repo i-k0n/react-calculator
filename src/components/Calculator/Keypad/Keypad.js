@@ -36,7 +36,7 @@ function Keypad(props) {
         <KeypadRow>
           <Button onButtonPress={props.onButtonPress}>0</Button>
           <Button onButtonPress={props.onButtonPress} action="decimal">.</Button>
-          <Button onButtonPress={props.onButtonPress} type="large" action="equals">=</Button>
+          <Button onButtonPress={props.onButtonPress} type="large" action="calculate">=</Button>
         </KeypadRow>
       </section>
     );

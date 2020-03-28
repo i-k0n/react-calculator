@@ -93,3 +93,8 @@
   background-color: #2e2928;
   color: #fe6f5e;
 }
+
+.is-depressed {
+  color: #bbb;
+  background-color: #fe6f5e;
+}
