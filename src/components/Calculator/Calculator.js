@@ -15,11 +15,15 @@ function Calculator() {
       const action = e.target.getAttribute('data-action');
       const keyContent = key.textContent;
       const displayedNum = display.textContent;
+      const calculator = document.querySelector('.calculator')
+      const previousKeyType = calculator.dataset.previousKeyType;
+
       console.log(keyContent)
       console.log(e.target.getAttribute('data-action'))
       if (!action) {
         console.log('number key!')
-        if (result === '0') {
+        calculator.dataset.previousKeyType = 'number'
+        if (result === '0' || previousKeyType === 'operator') {
           setResult(keyContent);
         } else { 
           setResult(result + keyContent);
@@ -27,6 +31,8 @@ function Calculator() {
       }
 
       document.querySelector('.keypad').querySelectorAll('.btn').forEach(k => k.classList.remove('is-depressed'))
+      
+
       
 
       if (
@@ -37,20 +43,37 @@ function Calculator() {
         action === 'percentage'
         ) {
           console.log('operator key!')
+          
           key.classList.add('is-depressed')
+
+          // Add custom attribute
+          // make previousKeyType into state
+          calculator.dataset.previousKeyType = 'operator'
+          calculator.dataset.firstValue = result;
+          calculator.dataset.operator = action;
       }
 
       if (action === 'decimal') {
         console.log('decimal key!')
-        setResult(result + '.')
+        calculator.dataset.previousKeyType = 'decimal'
+        if (!result.includes('.')) {
+          setResult(result + '.')
+        }
       }
 
       if (action === 'clear') {
         console.log('clear key!')
+        calculator.dataset.previousKeyType = 'clear'
       }
 
       if (action === 'calculate') {
         console.log('equal key!')
+        calculator.dataset.previousKeyType = 'calculate'
+        const firstValue = calculator.dataset.firstValue;
+        const operator = calculator.dataset.operator;
+        const secondValue = result;
+
+        setResult(calculate(firstValue, operator, secondValue))
       }
       // handle clear
       // if (pressedButton === 'C') return clear();
@@ -77,9 +100,20 @@ function Calculator() {
       // setEquation(equationTemp);
     }
 
-    const clear = () => {
-      setEquation('');
-      setResult(0);
+    const calculate = (n1, operator, n2) => {
+      let result = ''
+
+      if (operator === 'add') {
+        result = parseFloat(n1) + parseFloat(n2)
+      } else if (operator === 'subtract') {
+        result = parseFloat(n1) - parseFloat(n2)
+      } else if (operator === 'multiply') {
+        result = parseFloat(n1) * parseFloat(n2)
+      } else if (operator === 'divide') {
+        result = parseFloat(n1) / parseFloat(n2)
+      }
+
+      return result
     }
 
     return (
