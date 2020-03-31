@@ -119,11 +119,13 @@ function Calculator() {
 
       // handle clear
       if (pressedButton === 'C') {
+        setPreviousKey('clear')
         return clear();
       }
       // handle numbers
       else if (!action) {
         equationTemp += pressedButton;
+        setPreviousKey('number')
       }
       // handle decimals
       else if (action === 'decimal') {
@@ -140,20 +142,33 @@ function Calculator() {
           equationTemp += '0.';
         }
     
-        //     setPreviousKey('decimal');
-        //     console.log("firstValue: ", firstValue, "operator: ", operator, "secondValue: ", secondValue, "previousKey: ", previousKey)
+        setPreviousKey('decimal');
       }
       // handle operations
-      else if (['+', '-', '*', '/', '%'].indexOf(pressedButton) !== -1) equationTemp += ' ' + pressedButton + ' ';
+      else if (action === 'add' ||
+        action === 'subtract' ||
+        action === 'multiply' ||
+        action === 'divide' ||
+        action === 'percentage') {
+          if (previousKey !== 'operator') {
+            equationTemp += ' ' + pressedButton + ' ';
+          } else {
+            equationTemp = equationTemp.slice(0, -3) + ' ' + pressedButton + ' ';
+            console.log("equationTemp: ", equationTemp)
+          }
+          setPreviousKey('operator')
+      }
       // handle equals
-      else if (pressedButton === '=') {
+      else if (action === 'calculate') {
         try {
+          
           const evalResult = eval(equationTemp);
           const result = Number.isInteger(evalResult)? evalResult : evalResult.toFixed(2);
           setResult(result);
         } catch (error) {
-          alert('Invalid Mathematical Equation');
+          setResult('ERROR');
         }
+        setPreviousKey('calculate')
       }
       // handle delete
       else {
@@ -187,7 +202,6 @@ function Calculator() {
       setSecondValue('')
       setPreviousKey('clear');
       setEquation('')
-      console.log("firstValue: ", firstValue, "operator: ", operator, "secondValue: ", secondValue, "previousKey: ", previousKey)
     }
 
     return (
