@@ -146,8 +146,8 @@
   height: 170px;
   color: #222;
   padding: 1em;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  line-height: 1;
 }
 
 .result-screen, .computation-screen {
@@ -155,19 +155,20 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  padding: 10px;
 }
 
 .result-screen {
-  font-size: 4em;
+  font-size: 5em;
   font-weight: 600;
   border-radius: 0.15em 0.15em 0 0;
+  padding: 10px;
 }
 
 .computation-screen {
   font-size: 1.5em;
   font-weight: 500;
   border-radius: 0 0 0.5em 0.5em;
+  padding: 12px;
 }
 
 .keypad {
