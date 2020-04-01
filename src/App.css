@@ -219,6 +219,6 @@
 }
 
 .is-depressed {
-  color: #bbb;
-  background-color: #fe6f5e;
+  /* background-color: #fe6f5e; */
+  transform: translateZ(0.25em)
 }

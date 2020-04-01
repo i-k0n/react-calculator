@@ -126,6 +126,7 @@ function Calculator() {
       else if (!action) {
         equationTemp += pressedButton;
         setPreviousKey('number')
+        document.querySelector('.keypad').querySelectorAll('.btn').forEach(k => k.classList.remove('is-depressed'))
       }
       // handle decimals
       else if (action === 'decimal') {
@@ -155,8 +156,10 @@ function Calculator() {
           } else {
             equationTemp = equationTemp.slice(0, -3) + ' ' + pressedButton + ' ';
             console.log("equationTemp: ", equationTemp)
+            document.querySelector('.keypad').querySelectorAll('.btn').forEach(k => k.classList.remove('is-depressed'))
           }
           setPreviousKey('operator')
+          key.classList.add('is-depressed')
       }
       // handle equals
       else if (action === 'calculate') {
