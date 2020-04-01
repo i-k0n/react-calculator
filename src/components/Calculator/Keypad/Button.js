@@ -5,7 +5,11 @@ function Button(props) {
     const classes = ['btn'];
 
     if (typeof props !== 'undefined' && typeof props.type !== 'undefined') {
-        classes.push('btn--' + props.type);
+        const typeArray = props.type.split(' ')
+        typeArray.forEach(e => {
+            classes.push('btn--' + e);    
+        });
+        
     }
 
     return (

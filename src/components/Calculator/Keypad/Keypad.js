@@ -6,37 +6,37 @@ function Keypad(props) {
     return (
       <section className="keypad">
         <KeypadRow>
-          <Button onButtonPress={props.onButtonPress} action="clear">C</Button>
-          <Button onButtonPress={props.onButtonPress} action="delete">&larr;</Button>
-          <Button onButtonPress={props.onButtonPress} action="percentage">%</Button>
-          <Button onButtonPress={props.onButtonPress} action="divide">/</Button>
+          <Button onButtonPress={props.onButtonPress} type="red" action="clear">C</Button>
+          <Button onButtonPress={props.onButtonPress} type="red" action="delete">&rarr;</Button>
+          <Button onButtonPress={props.onButtonPress} type="red" action="percentage">%</Button>
+          <Button onButtonPress={props.onButtonPress} type="red" action="divide">/</Button>
         </KeypadRow>
 
         <KeypadRow>
-          <Button onButtonPress={props.onButtonPress}>9</Button>
-          <Button onButtonPress={props.onButtonPress}>8</Button>
-          <Button onButtonPress={props.onButtonPress}>7</Button>
-          <Button onButtonPress={props.onButtonPress} action="multiply">*</Button>
+          <Button onButtonPress={props.onButtonPress} type="number">9</Button>
+          <Button onButtonPress={props.onButtonPress} type="number">8</Button>
+          <Button onButtonPress={props.onButtonPress} type="number">7</Button>
+          <Button onButtonPress={props.onButtonPress} type="red" action="multiply">*</Button>
         </KeypadRow>
 
         <KeypadRow>
-          <Button onButtonPress={props.onButtonPress}>6</Button>
-          <Button onButtonPress={props.onButtonPress}>5</Button>
-          <Button onButtonPress={props.onButtonPress}>4</Button>
-          <Button onButtonPress={props.onButtonPress} action="subtract">-</Button>
+          <Button onButtonPress={props.onButtonPress} type="number">6</Button>
+          <Button onButtonPress={props.onButtonPress} type="number">5</Button>
+          <Button onButtonPress={props.onButtonPress} type="number">4</Button>
+          <Button onButtonPress={props.onButtonPress} type="red" action="subtract">-</Button>
         </KeypadRow>
 
         <KeypadRow>
-          <Button onButtonPress={props.onButtonPress}>3</Button>
-          <Button onButtonPress={props.onButtonPress}>2</Button>
-          <Button onButtonPress={props.onButtonPress}>1</Button>
-          <Button onButtonPress={props.onButtonPress} action="add">+</Button>
+          <Button onButtonPress={props.onButtonPress} type="number">3</Button>
+          <Button onButtonPress={props.onButtonPress} type="number">2</Button>
+          <Button onButtonPress={props.onButtonPress} type="number">1</Button>
+          <Button onButtonPress={props.onButtonPress} type="red" action="add">+</Button>
         </KeypadRow>
 
         <KeypadRow>
-          <Button onButtonPress={props.onButtonPress}>0</Button>
-          <Button onButtonPress={props.onButtonPress} action="decimal">.</Button>
-          <Button onButtonPress={props.onButtonPress} type="large" action="calculate">=</Button>
+          <Button onButtonPress={props.onButtonPress} type="number">0</Button>
+          <Button onButtonPress={props.onButtonPress} type="number" action="decimal">.</Button>
+          <Button onButtonPress={props.onButtonPress} type="large red" action="calculate">=</Button>
         </KeypadRow>
       </section>
     );
