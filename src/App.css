@@ -47,7 +47,7 @@
   width: 3.8vmin;
   height: 68.5vmin;
   background-color: #221e1d;
-  transform: rotateY(-90deg);
+  transform: rotateY(-90deg) translateZ(0.1vmin);
   transform-origin: right;
 }
 
