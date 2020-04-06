@@ -35,8 +35,8 @@
   width: 40.9vmin;
   height: 3.8vmin;
   background-color: #3a302e;
-  transform: rotateX(-90deg) translateY(-3.8vmin);
-  transform-origin: 0 0vmin -3.75vmin;
+  transform: rotateX(90deg);
+  transform-origin: bottom;
 }
 
 .calculator-container:after {
@@ -47,7 +47,7 @@
   width: 3.8vmin;
   height: 68.5vmin;
   background-color: #221e1d;
-  transform: rotateY(-90deg) translateZ(0.1vmin);
+  transform: rotateY(-90deg);
   transform-origin: right;
 }
 
